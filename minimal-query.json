@@ -1,0 +1,22 @@
+[
+    {
+        "$lookup": {
+            "as": "_lookedUp",
+            "from": "data_2",
+            "pipeline": [
+                {
+                    "$group": {
+                        "_id": {
+                            "Identifier": "$Identifier"
+                        }
+                    }
+                },
+                {
+                    "$facet": {
+                        "data_2": []
+                    }
+                }
+            ]
+        }
+    }
+]
